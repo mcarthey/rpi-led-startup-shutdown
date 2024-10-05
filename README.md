@@ -21,7 +21,167 @@ This project provides Python scripts to control an LED connected to a Raspberry 
 1. **Connect the LED Anode (+)** (longer leg) to **GPIO18** (Physical Pin 12) through a current-limiting resistor.
 2. **Connect the LED Cathode (-)** (shorter leg) to **Ground (GND)** on the Raspberry Pi (Physical Pin 6).
 
-![Wiring Diagram](path_to_wiring_diagram_image) *(Include an image if possible)*
+<pre><code>
+Raspberry Pi GPIO Header (Top View)
+
+ +--------------------------------------------------+
+ |                   Raspberry Pi                   |
+ |                GPIO Header Pins                  |
+ +--------------------------------------------------+
+
+  (Pin Numbers)        (BCM GPIO Numbers)
+
+         3V3  (1) o o (2)  5V
+    GPIO2  (3) o o (4)  5V
+    GPIO3  (5) o o (6)  GND -----------------------------+
+    GPIO4  (7) o o (8)  GPIO14                           |
+       GND  (9) o o (10) GPIO15                          |
+   GPIO17 (11) o o (12) GPIO18 -------------------+      |
+   GPIO27 (13) o o (14) GND                       |      |
+   GPIO22 (15) o o (16) GPIO23                    |      |
+     3V3 (17) o o (18) GPIO24                     |      |
+   GPIO10 (19) o o (20) GND                       |      |
+    GPIO9 (21) o o (22) GPIO25                    |      |
+   GPIO11 (23) o o (24) GPIO8                     |      |
+       GND (25) o o (26) GPIO7                    |      |
+                                                  |      |
+                                                  |      |
+                                                  |      |
+                                                  |      |
+                                                  |      |
+                                                  |      |
+ +------------------------------------------------+      |
+ |                                                       |
+ |                                                       |
+ |                LED and Resistor                       |
+ |                                                       |
+ +-------------------------------------------------------+
+
+Wiring Connections:
+
+1. **Connect GPIO18 (Physical Pin 12)** to one end of a **220Ω to 330Ω resistor**.
+2. **Connect the other end of the resistor** to the **Anode (+)** of the **LED**.
+3. **Connect the Cathode (-) of the LED** to **Ground (GND, Physical Pin 6)**.
+
+Simplified Diagram:
+
+   GPIO18 (Pin 12) ----[Resistor]---->|---- GND (Pin 6)
+                                     LED
+
+Detailed Connection Diagram:
+
+              +------------------------+
+              |        Raspberry Pi    |
+              |        (Top View)      |
+              +------------------------+
+
+                   GPIO18 (Pin 12)
+                         |
+                         |  (Connect to)
+                         |  (Anode +)
+                        [Resistor]
+                         |
+                         |
+                        |>|   (LED)
+                         |
+                         |
+                   GND (Pin 6)
+
+Legend:
+
+- `[Resistor]`: Current-limiting resistor (220Ω to 330Ω).
+- `|>|`: LED symbol pointing from Anode (+) to Cathode (-).
+- `GPIO18 (Pin 12)`: GPIO pin connected to the resistor and LED anode.
+- `GND (Pin 6)`: Ground pin connected to the LED cathode.
+
+---
+
+## Explanation of Connections
+
+- **GPIO18 (Physical Pin 12)**: This pin is configured in your scripts to control the LED. It's connected to the **Anode (+)** of the LED through a resistor.
+
+- **Resistor**: The resistor limits the current flowing through the LED to prevent damage. A value between **220Ω and 330Ω** is recommended.
+
+- **LED**:
+  - **Anode (+)**: The longer leg of the LED, connected to the resistor.
+  - **Cathode (-)**: The shorter leg of the LED, connected to **Ground (GND)**.
+
+- **Ground (GND, Physical Pin 6)**: This pin is connected to the **Cathode (-)** of the LED, completing the circuit.
+
+---
+
+## Alternative Diagram with Pin Numbers
+
+```plaintext
+Raspberry Pi GPIO Header Pins (Top View)
+
+ +--------------------------------------------------+
+ | Pin | Name        | Description                  |
+ +-----+-------------+------------------------------+
+ |  1  | 3.3V        |                              |
+ |  2  | 5V          |                              |
+ |  3  | GPIO2       |                              |
+ |  4  | 5V          |                              |
+ |  5  | GPIO3       |                              |
+ |  6  | GND -------+|------------------------+     |
+ |  7  | GPIO4      |                         |     |
+ |  8  | GPIO14     |                         |     |
+ |  9  | GND        |                         |     |
+ | 10  | GPIO15     |                         |     |
+ | 11  | GPIO17     |                         |     |
+ | 12  | GPIO18 ----+                         |     |
+ | 13  | GPIO27     |                         |     |
+ | 14  | GND        |                         |     |
+ | 15  | GPIO22     |                         |     |
+ | 16  | GPIO23     |                         |     |
+ | 17  | 3.3V       |                         |     |
+ | 18  | GPIO24     |                         |     |
+ | 19  | GPIO10     |                         |     |
+ | 20  | GND        |                         |     |
+ | 21  | GPIO9      |                         |     |
+ | 22  | GPIO25     |                         |     |
+ | 23  | GPIO11     |                         |     |
+ | 24  | GPIO8      |                         |     |
+ | 25  | GND        |                         |     |
+ | 26  | GPIO7      |                         |     |
+ +-----+-------------+-------------------------+-----+
+
+Wiring:
+
+1. **GPIO18 (Pin 12)** connects to **Resistor**.
+2. **Resistor** connects to **Anode (+)** of **LED**.
+3. **Cathode (-)** of **LED** connects to **GND (Pin 6)**.
+
+---
+
+## Visual Representation
+
+```plaintext
+    +-------------------+        +---------+
+    | Raspberry Pi GPIO |        |   LED   |
+    |      Header       |        |         |
+    +-------------------+        +----+----+
+             |                      |
+             |                      |
+       GPIO18 (Pin 12)              |
+             |                      |
+          [Resistor]                |
+             |                      |
+             +----------------------+ (Anode +)
+                                    |
+                                   |>|   (LED Symbol)
+                                    |
+             +----------------------+ (Cathode -)
+             |                      |
+             |                      |
+          GND (Pin 6)               |
+             |                      |
+             |                      |
+    +-------------------+        +----+----+
+    |                   |        |         |
+    |                   |        |         |
+    +-------------------+        +---------+
+</pre></code>
 
 **Note**: Always use a resistor in series with the LED to prevent excessive current, which can damage both the LED and the Raspberry Pi.
 
