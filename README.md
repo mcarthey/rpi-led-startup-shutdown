@@ -288,7 +288,7 @@ sudo apt-get install python3-rpi.gpio
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://rem.mit-license.org/+MIT) file for details.
 
 ## Contributing
 
@@ -296,7 +296,7 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## Contact
 
-For questions or support, please contact [your email address].
+For questions or support, please contact the author.
 
 ---
 
