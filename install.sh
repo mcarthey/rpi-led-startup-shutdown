@@ -50,12 +50,15 @@ cat << EOM > "$SERVICE_DIR/led-shutdown.service"
 Description=LED Shutdown Pulsing
 DefaultDependencies=no
 Before=shutdown.target
+Conflicts=reboot.target
+AllowIsolate=yes
 
 [Service]
 Type=oneshot
 ExecStart=$INSTALL_DIR/led_shutdown.py
-TimeoutStopSec=0
 RemainAfterExit=no
+TimeoutStartSec=15
+KillMode=process
 
 [Install]
 WantedBy=shutdown.target
@@ -70,6 +73,7 @@ After=multi-user.target
 [Service]
 Type=simple
 ExecStart=$INSTALL_DIR/led_on.py
+ExecStop=$INSTALL_DIR/led_shutdown.py
 Restart=on-failure
 
 [Install]

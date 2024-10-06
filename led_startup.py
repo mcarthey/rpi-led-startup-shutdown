@@ -13,7 +13,7 @@ GPIO.setup(LED_PIN, GPIO.OUT)
 
 try:
     # Blink the LED rapidly during startup
-    for _ in range(30):  # Number of blinks (adjust for duration)
+    for _ in range(10):  # Number of blinks (adjust for duration)
         GPIO.output(LED_PIN, GPIO.HIGH)  # Turn LED on
         time.sleep(BLINK_DELAY)          # Wait
         GPIO.output(LED_PIN, GPIO.LOW)   # Turn LED off
