@@ -151,7 +151,8 @@ Wiring:
 1. **GPIO18 (Pin 12)** connects to **Resistor**.
 2. **Resistor** connects to **Anode (+)** of **LED**.
 3. **Cathode (-)** of **LED** connects to **GND (Pin 6)**.
-
+```
+ 
 ---
 
 ## Visual Representation
@@ -181,10 +182,13 @@ Wiring:
     |                   |        |         |
     |                   |        |         |
     +-------------------+        +---------+
-</pre></code>
+```
 
 **Note**: Always use a resistor in series with the LED to prevent excessive current, which can damage both the LED and the Raspberry Pi.
 
+## Diagram
+  ![Wiring Diagram](circuit-diagram.drawio.png "Wiring Diagram")
+ 
 ## Installation
 
 1. **Clone the Repository**
