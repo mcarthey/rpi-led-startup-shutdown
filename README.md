@@ -56,6 +56,7 @@ Raspberry Pi GPIO Header (Top View)
  |                LED and Resistor                       |
  |                                                       |
  +-------------------------------------------------------+
+</pre></code>
 
 Wiring Connections:
 
@@ -63,6 +64,7 @@ Wiring Connections:
 2. **Connect the other end of the resistor** to the **Anode (+)** of the **LED**.
 3. **Connect the Cathode (-) of the LED** to **Ground (GND, Physical Pin 6)**.
 
+<pre><code>
 Simplified Diagram:
 
    GPIO18 (Pin 12) ----[Resistor]---->|---- GND (Pin 6)
@@ -86,6 +88,7 @@ Detailed Connection Diagram:
                          |
                          |
                    GND (Pin 6)
+</pre></code>
 
 Legend:
 
@@ -112,7 +115,7 @@ Legend:
 
 ## Alternative Diagram with Pin Numbers
 
-```plaintext
+<pre><code>
 Raspberry Pi GPIO Header Pins (Top View)
 
  +--------------------------------------------------+
@@ -145,19 +148,20 @@ Raspberry Pi GPIO Header Pins (Top View)
  | 25  | GND        |                         |     |
  | 26  | GPIO7      |                         |     |
  +-----+-------------+-------------------------+-----+
+</pre></code>
 
 Wiring:
 
 1. **GPIO18 (Pin 12)** connects to **Resistor**.
 2. **Resistor** connects to **Anode (+)** of **LED**.
 3. **Cathode (-)** of **LED** connects to **GND (Pin 6)**.
-```
+
  
 ---
 
 ## Visual Representation
 
-```plaintext
+<pre><code>
     +-------------------+        +---------+
     | Raspberry Pi GPIO |        |   LED   |
     |      Header       |        |         |
@@ -182,7 +186,7 @@ Wiring:
     |                   |        |         |
     |                   |        |         |
     +-------------------+        +---------+
-```
+ </pre></code>
 
 **Note**: Always use a resistor in series with the LED to prevent excessive current, which can damage both the LED and the Raspberry Pi.
 
